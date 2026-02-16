@@ -59,11 +59,28 @@
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </div>
-        <div class="navbar-end">
-            <div class="btn btn-ghost">
-                <i class="fa-solid fa-cart-shopping"></i>
+        <div class="drawer drawer-end navbar-end">
+            <input id="my-drawer-5" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content">
+                <label for="my-drawer-5" class="drawer-button btn btn-primary rounded-full relative">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold hidden">0</span>
+                </label>
             </div>
-
+            <div class="drawer-side">
+                <label for="my-drawer-5" aria-label="close sidebar" class="drawer-overlay"></label>
+                <div class="menu bg-base-200 min-h-full w-80 p-4 flex flex-col">
+                    <div class="text-center font-bold text-xl mb-4">Cart Items</div>
+                    <div id="cartItems" class="flex-1 overflow-y-auto"></div>
+                    <div class="border-t pt-4 mt-4">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-bold text-lg">Total:</span>
+                            <span id="cartTotal" class="font-bold text-2xl text-primary">$0.00</span>
+                        </div>
+                        <button class="btn btn-primary w-full" onclick="checkout()">Checkout</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <section class="py-16">
