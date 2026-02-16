@@ -19,10 +19,12 @@
             font-family: "Poppins";
             scroll-behavior: smooth;
         }
+
         body {
             padding-top: 64px;
         }
-        .active{
+
+        .active {
             color: blueviolet;
         }
     </style>
@@ -49,26 +51,155 @@
                 </ul>
             </div>
             <div class="flex items-center gap-2 text-2xl font-bold text-primary cursor-pointer">
-               
+
                 <span>SwiftCart</span>
             </div>
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1 font-bold">
                 <li><a href="#home">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a>About</a></li>
-                    <li><a>Contact</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a>About</a></li>
+                <li><a>Contact</a></li>
             </ul>
         </div>
         <div class="navbar-end">
             <div class="btn btn-ghost">
                 <i class="fa-solid fa-cart-shopping"></i>
             </div>
-            
+
         </div>
     </div>
 
+    <!-- Hero Section -->
+    <section>
+        <div class="hero min-h-[60vh]" style="background-image: url(./Assets/banner-image.png);">
+            <div class="hero-overlay bg-gradient-to-r from-black/60 to-white/30"></div>
+            <div class="hero-content text-neutral-content ">
+                <div class="max-w-7xl">
+                    <h1 class="mb-5 max-w-7xl text-5xl font-bold">Best Collection for you</h1>
+                    <p class="mb-5">
+                        Discover the latest trends in fashion, electronics, and more-Shop with
+                        confidence and style at SwiftCart.
+                    </p>
+                    <button class="btn btn-primary">Shop Now</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-5">
+            <h2 class="text-center text-4xl mb-12 text-gray-800 font-bold">Why Choose Us</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    class="bg-white p-8 rounded-xl text-center shadow-md hover:shadow-xl hover:translate-y-1 transition-transform">
+                    <div class="text-5xl text-primary mb-4">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 class="text-2xl mb-2 text-gray-800 font-semibold">Fast Delivery</h3>
+                    <p class="text-gray-700">Get your orders delivered to
+                        your doorstep quickly and
+                        efficiently.</p>
+                </div>
+                <div
+                    class="bg-white p-8 rounded-xl text-center shadow-md hover:shadow-xl hover:translate-y-1 transition-transform">
+                    <div class="text-5xl text-primary mb-4">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-2xl mb-2 text-gray-800 font-semibold">24/7 Support</h3>
+                    <p class="text-gray-700">Our support team is available
+                        around the clock to assist you.</p>
+                </div>
+                <div
+                    class="bg-white p-8 rounded-xl text-center shadow-md hover:shadow-xl hover:translate-y-1 transition-transform">
+                    <div class="text-5xl text-primary mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-2xl mb-2 text-gray-800 font-semibold">Secure Payment</h3>
+                    <p class="text-gray-700">Experience safe and secure
+                        transactions with our
+                        encrypted payment systems.</p>
+                </div>
+                <div
+                    class="bg-white p-8 rounded-xl text-center shadow-md hover:shadow-xl hover:translate-y-1 transition-transform">
+                    <div class="text-5xl text-primary mb-4">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h3 class="text-2xl mb-2 text-gray-800 font-semibold">Easy Returns</h3>
+                    <p class="text-gray-700">Not satisfied? Return your
+                        products easily within 30
+                        days.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-5">
+            <h2 class="text-center text-4xl mb-12 text-gray-800 font-bold">Trending Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="trendingProducts">
+                
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer sm:footer-horizontal bg-gray-900 text-white/80  p-10">
+        <aside>
+            <h2 class="font-bold text-3xl text-primary">SwiftCart</h2>
+            <p> Your one-stop shop for all your fashion
+                and lifestyle needs. Quality products, fast
+                delivery, and excellent support.
+            </p>
+        </aside>
+        <nav>
+            <h6 class="footer-title">Quick Links</h6>
+            <a class="link link-hover">Home</a>
+            <a class="link link-hover">Products</a>
+            <a class="link link-hover">About</a>
+            <a class="link link-hover">Contact</a>
+        </nav>
+
+        <nav>
+            <h6 class="footer-title">Support</h6>
+            <a class="link link-hover">FAQ</a>
+            <a class="link link-hover">Shipping</a>
+            <a class="link link-hover">Returns</a>
+            <a class="link link-hover">Privacy policy</a>
+        </nav>
+        <fieldset class="w-80">
+            <h6 class="footer-title">Subscribe to our Newsletter</h6>
+            <label>The latest news, articles, and resources,
+                Sent to your inbox weekly</label>
+            <div class="join">
+                <input type="text" placeholder="username@site.com" class="input input-bordered join-item" />
+                <button class="btn btn-primary join-item">Subscribe</button>
+            </div>
+        </fieldset>
+    </footer>
+
+
+   
+    <!-- Product Detail Modal -->
+    <div class="modal hidden fixed z-[2000] left-0 top-0 w-full h-full bg-black/50 items-center justify-center"
+        id="productModal">
+        <div class="bg-white p-8 rounded-xl max-w-4xl max-h-[90vh] overflow-y-auto relative m-4"
+            style="animation: slideUp 0.3s;">
+            <span
+                class="absolute top-4 right-4 text-4xl cursor-pointer text-gray-700 bg-transparent border-0 w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors duration-300"
+                id="closeModal">&times;</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="modalBody">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="hidden fixed top-0 left-0 w-full h-full bg-black/50 z-[1999]" id="cartOverlay"></div>
 
     <script src="script.js"></script>
 </body>
