@@ -1,5 +1,6 @@
 const API_BASE_URL = 'https://fakestoreapi.com';
-let allProductsData = []; 
+let allProductsData = [];
+let cart = []; 
 
 
 async function loadCategories() {
@@ -123,6 +124,8 @@ async function TrendingProducts() {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    loadCartFromStorage();
+    updateCartDisplay();
     TrendingProducts();
     loadCategories();
     const productsContainer = document.getElementById('AllProducts');
@@ -131,9 +134,97 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function addToCart(productId) {
-    alert(`Product ${productId} added to cart!`);
-    console.log('Added to cart:', productId);
+async function addToCart(productId) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/products/${productId}`);
+        const product = await response.json();
+        
+        const existingItem = cart.find(item => item.id === productId);
+        
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                id: product.id,
+                title: product.title,
+                price: product.price,
+                image: product.image,
+                quantity: 1
+            });
+        }
+        
+        saveCartToStorage();
+        updateCartDisplay();
+        
+        alert('Product added to cart!');
+    } catch (e) {
+        console.log('Error adding to cart:', e);
+    }
+}
+
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    saveCartToStorage();
+    updateCartDisplay();
+}
+
+function updateCartDisplay() {
+    const cartCount = document.getElementById('cartCount');
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    
+    if (!cartCount || !cartItems || !cartTotal) return;
+    
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    
+    if (totalItems > 0) {
+        cartCount.textContent = totalItems;
+        cartCount.classList.remove('hidden');
+    } else {
+        cartCount.classList.add('hidden');
+    }
+    
+    if (cart.length === 0) {
+        cartItems.innerHTML = '<div class="text-center text-gray-500 py-8">Your cart is empty</div>';
+    } else {
+        cartItems.innerHTML = cart.map(item => `
+            <div class="bg-white rounded-lg p-3 mb-3 shadow-sm">
+                <div class="flex gap-3">
+                    <img src="${item.image}" class="w-16 h-16 object-contain">
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-sm line-clamp-2">${item.title}</h4>
+                        <div class="text-primary font-bold">$${item.price.toFixed(2)}</div>
+                        <div class="text-sm text-gray-600">Qty: ${item.quantity}</div>
+                    </div>
+                    <button onclick="removeFromCart(${item.id})" class="btn btn-sm btn-ghost btn-circle text-red-500">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+}
+
+function saveCartToStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function loadCartFromStorage() {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+    }
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+    alert('Checkout feature coming soon! Total: $' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2));
 }
 
 
@@ -175,7 +266,6 @@ async function showProductDetails(productId){
                 </div>
             </div>
         `;
-
         document.getElementById('productModal').showModal();
 
     }catch(e){
