@@ -42,23 +42,23 @@
                 </div>
                 <ul tabindex="-1"
                     class="menu font-bold menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                    <li to="/index.html"><a>Home</a></li>
-                    <li><a href="./products.html">Products</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a>Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-            <div class="flex items-center gap-2 text-2xl font-bold text-primary cursor-pointer">
-
+            <div class="flex items-center gap-2 text-2xl font-bold text-primary cursor-pointer" onclick="window.location.href='index.html'">
+                <i class="fas fa-shopping-bag text-3xl"></i>
                 <span>SwiftCart</span>
             </div>
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1 font-bold">
-                <li to="/index.html"><a>Home</a></li>
-                <li><a href="./products.html">Products</a></li>
-                <li><a>About</a></li>
-                <li><a>Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
         <div class="navbar-end">
@@ -80,7 +80,7 @@
                         Discover the latest trends in fashion, electronics, and more-Shop with
                         confidence and style at SwiftCart.
                     </p>
-                    <button class="btn btn-primary">Shop Now</button>
+                    <button class="btn btn-primary" onclick="window.location.href='products.html'">Shop Now</button>
                 </div>
             </div>
         </div>
@@ -156,10 +156,10 @@
         </aside>
         <nav>
             <h6 class="footer-title">Quick Links</h6>
-            <a class="link link-hover">Home</a>
-            <a class="link link-hover">Products</a>
-            <a class="link link-hover">About</a>
-            <a class="link link-hover">Contact</a>
+            <a href="index.html" class="link link-hover">Home</a>
+            <a href="products.html" class="link link-hover">Products</a>
+            <a href="#about" class="link link-hover">About</a>
+            <a href="#contact" class="link link-hover">Contact</a>
         </nav>
 
         <nav>

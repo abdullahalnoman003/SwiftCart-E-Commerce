@@ -40,23 +40,23 @@
                 </div>
                 <ul tabindex="-1"
                     class="menu font-bold menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a>Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </div>
-            <div class="flex items-center gap-2 text-2xl font-bold text-primary cursor-pointer">
-
+            <div class="flex items-center gap-2 text-2xl font-bold text-primary cursor-pointer" onclick="window.location.href='index.html'">
+                <i class="fas fa-shopping-bag text-3xl"></i>
                 <span>SwiftCart</span>
             </div>
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1 font-bold">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a>About</a></li>
-                <li><a>Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </div>
         <div class="navbar-end">
@@ -69,8 +69,20 @@
     <section class="py-16">
         <div class="max-w-7xl mx-auto px-5">
             <h2 class="text-center text-4xl mb-12 text-gray-800 font-bold">All Products</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="AllProducts">
-
+            
+            <div class="flex flex-wrap justify-center gap-3 mb-12" id="categoryFilters">
+                <button 
+                    onclick="filterProducts('all')" 
+                    class="px-6 py-3 rounded-full font-semibold border-2 bg-primary text-white border-primary hover:bg-indigo-700 transition-all duration-300 capitalize" 
+                    data-category="all">
+                    All Products
+                </button>
+            </div>
+            <div class="hidden justify-center items-center py-12" id="loadingSpinner">
+                <span class="loading loading-spinner loading-lg text-primary"></span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="AllProducts">
+         
             </div>
         </div>
     </section>
@@ -92,10 +104,10 @@
         </aside>
         <nav>
             <h6 class="footer-title">Quick Links</h6>
-            <a class="link link-hover">Home</a>
-            <a class="link link-hover">Products</a>
-            <a class="link link-hover">About</a>
-            <a class="link link-hover">Contact</a>
+            <a href="index.html" class="link link-hover">Home</a>
+            <a href="products.html" class="link link-hover">Products</a>
+            <a href="index.html#about" class="link link-hover">About</a>
+            <a href="index.html#contact" class="link link-hover">Contact</a>
         </nav>
 
         <nav>
