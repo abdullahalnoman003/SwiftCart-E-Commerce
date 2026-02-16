@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwiftCart E-Commerce</title>
+    <link rel="icon" type="image/svg+xml" href="./Assets/logo.jpg" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -18,14 +19,11 @@
         html {
             font-family: "Poppins";
             scroll-behavior: smooth;
+            overflow-y: scroll;
         }
 
         body {
             padding-top: 64px;
-        }
-
-        .active {
-            color: blueviolet;
         }
     </style>
 </head>
@@ -44,8 +42,8 @@
                 </div>
                 <ul tabindex="-1"
                     class="menu font-bold menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#products">Products</a></li>
+                    <li to="/index.html"><a>Home</a></li>
+                    <li><a href="./products.html">Products</a></li>
                     <li><a href="/about">About</a></li>
                     <li><a>Contact</a></li>
                 </ul>
@@ -57,8 +55,8 @@
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1 font-bold">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
+                <li to="/index.html"><a>Home</a></li>
+                <li><a href="./products.html">Products</a></li>
                 <li><a>About</a></li>
                 <li><a>Contact</a></li>
             </ul>
@@ -142,7 +140,7 @@
         <div class="max-w-7xl mx-auto px-5">
             <h2 class="text-center text-4xl mb-12 text-gray-800 font-bold">Trending Products</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="trendingProducts">
-                
+
             </div>
         </div>
     </section>
@@ -183,23 +181,16 @@
     </footer>
 
 
-   
-    <!-- Product Detail Modal -->
-    <div class="modal hidden fixed z-[2000] left-0 top-0 w-full h-full bg-black/50 items-center justify-center"
-        id="productModal">
-        <div class="bg-white p-8 rounded-xl max-w-4xl max-h-[90vh] overflow-y-auto relative m-4"
-            style="animation: slideUp 0.3s;">
-            <span
-                class="absolute top-4 right-4 text-4xl cursor-pointer text-gray-700 bg-transparent border-0 w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors duration-300"
-                id="closeModal">&times;</span>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="modalBody">
-                <!-- Product details will be loaded here -->
-            </div>
-        </div>
-    </div>
 
-    <!-- Cart Overlay -->
-    <div class="hidden fixed top-0 left-0 w-full h-full bg-black/50 z-[1999]" id="cartOverlay"></div>
+    <dialog id="productModal" class="modal">
+        <div class="modal-box max-w-4xl p-0 overflow-hidden">
+            <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3 text-lg">✕</button>
+            </form>
+            <div id="modalContent" class="grid md:grid-cols-2 gap-6 p-6"></div>
+        </div>
+    </dialog>
+
 
     <script src="script.js"></script>
 </body>
